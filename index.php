@@ -49,39 +49,42 @@
     </div>
   </nav>
 
-	<?php
-		echo "";
-		$path = ".";
-		$dh = opendir($path);
-		$li = "<table class='table'><thead class='thead-dark'><tr><th>Title</th><th>Link</th><th>File Type</th><th>Last time modified</th></tr></thead><tbody>";
-		$aList = array();
-		$sEntrie = "";
-		$i=1;
+  <div class="container">
+    <?php
+  		echo "";
+  		$path = ".";
+  		$dh = opendir($path);
+  		$li = "<table class='table table-responsive'><thead class='thead-dark'><tr><th>Title</th><th>Link</th><th>File Type</th><th>Last time modified</th></tr></thead><tbody>";
+  		$aList = array();
+  		$sEntrie = "";
+  		$i=1;
 
-		function getFileType($sType) {
-		    if($sType == "dir") {
-		        return "website/directory";
-            } else {
-		        return $sType;
-            }
-        }
-		while (($file = readdir($dh)) !== false) {
-    	if($file != "." && $file != ".." && $file != "index.php" && $file != ".htaccess" && $file != "error_log" && $file != "cgi-bin") {
+  		function getFileType($sType) {
+  		    if($sType == "dir") {
+  		        return "website/directory";
+              } else {
+  		        return $sType;
+              }
+          }
+  		while (($file = readdir($dh)) !== false) {
+      	if($file != "." && $file != ".." && $file != "index.php" && $file != ".htaccess" && $file != "error_log" && $file != "cgi-bin") {
 
-            $sEntrie = "<tr><td>".ucfirst($file)."</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".getFileType(filetype($file))."</td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
-            array_push($aList, $sEntrie);
-            //$li.= "<tr><td>".ucfirst($file)."</td><td>Dominik Prinzensteiner</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
-				$i++;
-    	}
-		}
-		sort($aList);
-		for($i = 0; $i < count($aList); $i++){
-            $li .= $aList[$i];
-    }
-		$li .= "</tbody></table>";
-		echo $li;
-		closedir($dh);
-	?>
+              $sEntrie = "<tr><td>".ucfirst($file)."</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".getFileType(filetype($file))."</td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
+              array_push($aList, $sEntrie);
+              //$li.= "<tr><td>".ucfirst($file)."</td><td>Dominik Prinzensteiner</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
+  				$i++;
+      	}
+  		}
+  		sort($aList);
+  		for($i = 0; $i < count($aList); $i++){
+              $li .= $aList[$i];
+      }
+  		$li .= "</tbody></table>";
+  		echo $li;
+  		closedir($dh);
+  	?>
+  </div>
+
   <script src="assets/js/jquery-3.2.1.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
