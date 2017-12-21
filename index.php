@@ -69,7 +69,7 @@
   		while (($file = readdir($dh)) !== false) {
       	if($file != "." && $file != ".." && $file != "index.php" && $file != ".htaccess" && $file != "error_log" && $file != "cgi-bin") {
 
-              $sEntrie = "<tr><td>".ucfirst($file)."</td><td><i class='fa fa-external-link' aria-hidden='true'><a href='$path/$file'></a></i></td><td>".getFileType(filetype($file))."</td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
+              $sEntrie = "<tr><td>".ucfirst($file)."</td><td><a href='$path/$file'><i class='fa fa-external-link' aria-hidden='true'></i></a></td><td>".getFileType(filetype($file))."</td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
               array_push($aList, $sEntrie);
               //$li.= "<tr><td>".ucfirst($file)."</td><td>Dominik Prinzensteiner</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
   				$i++;
