@@ -53,7 +53,7 @@
 		echo "";
 		$path = ".";
 		$dh = opendir($path);
-		$li = "<table class='table'><thead class='thead-dark'><tr><th>Title</th><th>Editor</th><th>Link</th><th>File Type</th><th>Last time modified</th></tr></thead><tbody>";
+		$li = "<table class='table'><thead class='thead-dark'><tr><th>Title</th><th>Link</th><th>File Type</th><th>Last time modified</th></tr></thead><tbody>";
 		$aList = array();
 		$sEntrie = "";
 		$i=1;
@@ -68,7 +68,7 @@
 		while (($file = readdir($dh)) !== false) {
     	if($file != "." && $file != ".." && $file != "index.php" && $file != ".htaccess" && $file != "error_log" && $file != "cgi-bin") {
 
-            $sEntrie = "<tr><td>".ucfirst($file)."</td><td>Dominik Prinzensteiner</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".getFileType(filetype($file))."</td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
+            $sEntrie = "<tr><td>".ucfirst($file)."</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".getFileType(filetype($file))."</td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
             array_push($aList, $sEntrie);
             //$li.= "<tr><td>".ucfirst($file)."</td><td>Dominik Prinzensteiner</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
 				$i++;
