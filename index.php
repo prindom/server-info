@@ -31,19 +31,8 @@
         <li class="nav-item">
           <a class="nav-link" href="/phpmyadmin">phpmyadmin</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" href="#">Statistik</a>
         </li>
       </ul>
     </div>
@@ -68,10 +57,8 @@
           }
   		while (($file = readdir($dh)) !== false) {
       	if($file != "." && $file != ".." && $file != "index.php" && $file != ".htaccess" && $file != "error_log" && $file != "cgi-bin") {
-
-              $sEntrie = "<tr><td>".ucfirst($file)."</td><td>".getFileType(filetype($file))."</td><td>".date ("F d Y H:i:s.", filemtime($file))."</td><td><a href='$path/$file'><i class='fa fa-external-link' aria-hidden='true'></i></a></td></tr>";
-              array_push($aList, $sEntrie);
-              //$li.= "<tr><td>".ucfirst($file)."</td><td>Dominik Prinzensteiner</td><td><a href='$path/$file'>hgb1.damnserver.com/$file</a></td><td>".date ("F d Y H:i:s.", filemtime($file))."</td></tr>";
+          $sEntrie = "<tr><td>".ucfirst($file)."</td><td>".getFileType(filetype($file))."</td><td>".date ("F d Y H:i:s.", filemtime($file))."</td><td><a href='$path/$file'><i class='fa fa-external-link' aria-hidden='true'></i></a></td></tr>";
+          array_push($aList, $sEntrie);
   				$i++;
       	}
   		}
