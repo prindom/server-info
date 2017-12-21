@@ -53,7 +53,7 @@
 		echo "";
 		$path = ".";
 		$dh = opendir($path);
-		$li = "<table class='table'><thead><tr><th>Title</th><th>Editor</th><th>Link</th><th>File Type</th><th>Last time modified</th></tr></thead><tbody>";
+		$li = "<table class='table'><thead class='thead-dark'><tr><th>Title</th><th>Editor</th><th>Link</th><th>File Type</th><th>Last time modified</th></tr></thead><tbody>";
 		$aList = array();
 		$sEntrie = "";
 		$i=1;
